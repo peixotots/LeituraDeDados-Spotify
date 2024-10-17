@@ -7,16 +7,14 @@ public class SpotifyData {
     private String mes;
     private String dia;
     private String inSpotifyPlaylists;
-    private String inSpotifycharts;
 
-    public SpotifyData(String artist, String musica, String ano, String mes, String dia, String inSpotifyPlaylists, String inSpotifycharts) {
+    public SpotifyData(String artist, String musica, String ano, String mes, String dia, String inSpotifyPlaylists) {
         this.artist = artist;
         this.musica = musica;
         this.ano = ano;
         this.mes = mes;
         this.dia = dia;
         this.inSpotifyPlaylists = inSpotifyPlaylists;
-        this.inSpotifycharts = inSpotifycharts;
     }
 
     public String getArtist() {
@@ -65,13 +63,5 @@ public class SpotifyData {
 
     public void setInSpotifyPlaylists(String inSpotifyPlaylists) {
         this.inSpotifyPlaylists = inSpotifyPlaylists;
-    }
-
-    public String getInSpotifycharts() {
-        return inSpotifycharts;
-    }
-
-    public void setInSpotifycharts(String inSpotifycharts) {
-        this.inSpotifycharts = inSpotifycharts;
     }
 }
