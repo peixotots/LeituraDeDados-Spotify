@@ -1,67 +1,38 @@
 package data;
 
 public class SpotifyData {
-    private String artist;
-    private String musica;
-    private String ano;
-    private String mes;
-    private String dia;
-    private String inSpotifyPlaylists;
+    private String nome;
+    private String artista;
+    private int numeroDeOuvidas;
+    private int numeroDePlaylists;
 
-    public SpotifyData(String artist, String musica, String ano, String mes, String dia, String inSpotifyPlaylists) {
-        this.artist = artist;
-        this.musica = musica;
-        this.ano = ano;
-        this.mes = mes;
-        this.dia = dia;
-        this.inSpotifyPlaylists = inSpotifyPlaylists;
+    public SpotifyData(String nome, String artista, int numeroDeOuvidas, int numeroDePlaylists) {
+        this.nome = nome;
+        this.artista = artista;
+        this.numeroDeOuvidas = numeroDeOuvidas;
+        this.numeroDePlaylists = numeroDePlaylists;
     }
 
-    public String getArtist() {
-        return artist;
+
+    public int getNumeroDeOuvidas() {
+        return numeroDeOuvidas;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
+
+    @Override
+    public String toString() {
+        return String.format("%s - %s (%d ouvidas, %d playlists)", nome, artista, numeroDeOuvidas, numeroDePlaylists);
     }
 
-    public String getMusica() {
-        return musica;
+    public String getNome() {
+        return nome;
     }
 
-    public void setMusica(String musica) {
-        this.musica = musica;
+    public String getArtista() {
+        return artista;
     }
 
-    public String getAno() {
-        return ano;
-    }
-
-    public void setAno(String ano) {
-        this.ano = ano;
-    }
-
-    public String getMes() {
-        return mes;
-    }
-
-    public void setMes(String mes) {
-        this.mes = mes;
-    }
-
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }
-
-    public String getInSpotifyPlaylists() {
-        return inSpotifyPlaylists;
-    }
-
-    public void setInSpotifyPlaylists(String inSpotifyPlaylists) {
-        this.inSpotifyPlaylists = inSpotifyPlaylists;
+    public int getNumeroDePlaylists() {
+        return numeroDePlaylists;
     }
 }
