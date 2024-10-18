@@ -32,17 +32,6 @@ public class Util {
         return resultado.toArray(new String[0]);
     }
 
-    public static String lerTexto(String pergunta) throws DadoInvalidoException {
-        System.out.println(pergunta);
-        String texto = entrada.nextLine();
-        while (texto.isEmpty()) {
-            System.err.println("Entrada inválida. Digite um texto válido.");
-            texto = entrada.nextLine();
-        }
-        return texto;
-    }
-
-
     public static int lerNumeroInteiro(String pergunta) throws OpcaoInvalidaException {
         System.out.println(pergunta);
         String texto = entrada.nextLine();
