@@ -6,11 +6,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DataReader {
-    public static List<SpotifyData> lerMusicasDoArquivo(String caminhoArquivo) {
+
+    public static List<SpotifyData> lerMusicasDoArquivo(String caminhoArquivo, String opcao) {
         List<SpotifyData> musicas = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
@@ -19,30 +19,32 @@ public class DataReader {
 
             while ((linha = br.readLine()) != null) {
                 String[] colunas = Util.parseLinhaCSV(linha);
-                if (colunas.length < 9) {
+                if (colunas.length < 13) {
                     continue;
                 }
 
                 String nome = colunas[0].trim();
                 String artista = colunas[1].trim();
-                int numeroDeOuvidas = 0;
-                int numeroDePlaylists = 0;
+                int numeroDeOuvidas = Integer.parseInt(colunas[8].trim());
+                int numeroDePlaylists = Integer.parseInt(colunas[6].trim());
+                int inAppleCharts = Integer.parseInt(colunas[10].trim());
 
-                try {
-                    numeroDeOuvidas = Integer.parseInt(colunas[8].trim());
-                    numeroDePlaylists = Integer.parseInt(colunas[6].trim());
-                } catch (NumberFormatException e) {
-                    System.err.println("Erro ao converter número na linha: " + Arrays.toString(colunas));
-                    continue;
+                if (opcao.equals("1")) {
+                    SpotifyData dataSpotify = new SpotifyData(nome, artista, numeroDeOuvidas, numeroDePlaylists);
+                    musicas.add(dataSpotify);
                 }
-
-                SpotifyData data = new SpotifyData(nome, artista, numeroDeOuvidas, numeroDePlaylists);
-                musicas.add(data);
+                if (opcao.equals("2")) {
+                    AppleData dataApple = new AppleData(nome, artista, numeroDeOuvidas, numeroDePlaylists, inAppleCharts);
+                    musicas.add(dataApple);
+                }
+                if (opcao.equals("3")) {
+                    //...
+                }
             }
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
         }
-
         return musicas;
     }
 }
+

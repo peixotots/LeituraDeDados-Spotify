@@ -2,7 +2,7 @@ package controller;
 
 import data.SpotifyData;
 import exception.OpcaoInvalidaException;
-import filter.SpotifyDeezerPlayCountFilter;
+import filter.Apple10ChartsFilter;
 import filter.TopFiveFilter;
 import util.Util;
 
@@ -13,11 +13,10 @@ import static data.DataReader.lerMusicasDoArquivo;
 public class MenuPrincipal extends Menu {
     @Override
     public void selecionaOpcao() {
-        String menu = Menu.geraMenuComOpcoes("FILTRO", List.of("Top 5 mais ouvidas", "Comparar Spotify vs Deezer - Top 5", "...", "Sair"));
+        String menu = Menu.geraMenuComOpcoes("FILTROS", List.of("TOP 5 MAIS ESCUTADAS NO SPOTIFY", "TOP 5 DESTAQUES NA APPLE", "...", "Sair"));
 
-        int opcaoSelecionada = 0;
         String caminhoArquivo = "src/spotify-2023.csv";
-        List<SpotifyData> data = lerMusicasDoArquivo(caminhoArquivo);
+        int opcaoSelecionada = 0;
         do {
             try {
                 System.out.println(menu);
@@ -25,19 +24,20 @@ public class MenuPrincipal extends Menu {
                 switch (opcaoSelecionada) {
                     case 1:
                         TopFiveFilter topFiveFilter = new TopFiveFilter();
-                        List<SpotifyData> top5MaisOuvidas = topFiveFilter.applyFilter(data);
-                        System.out.println(geraSaidaTop5(top5MaisOuvidas, "Top 5 mais ouvidas"));
+                        List<SpotifyData> dataSpotify = lerMusicasDoArquivo(caminhoArquivo, "1");
+                        List<SpotifyData> top5MaisOuvidasSpotify = topFiveFilter.applyFilter(dataSpotify);
+                        System.out.println(geraSaidaFiltros(top5MaisOuvidasSpotify,"TOP 5 NO SPOTIFY"));
                         break;
                     case 2:
-                        SpotifyDeezerPlayCountFilter spotifyDeezerFilter = new SpotifyDeezerPlayCountFilter();
-
+                        Apple10ChartsFilter appleFilter = new Apple10ChartsFilter();
+                        List<SpotifyData> dataApple = lerMusicasDoArquivo(caminhoArquivo, "2");
+                        List<SpotifyData> top5DestaquesApple = appleFilter.applyFilter(dataApple);
+                        System.out.println(geraSaidaFiltros(top5DestaquesApple, "TOP 5 DESTAQUES NA APPLE"));
                         break;
                     case 3:
                         break;
                     case 4:
-                        break;
-                    case 5:
-                        System.err.println("Encerrando o programa...");
+                        System.err.println("Saindo...");
                         break;
                     default:
                         throw new OpcaoInvalidaException();
@@ -47,6 +47,6 @@ public class MenuPrincipal extends Menu {
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
-        } while (opcaoSelecionada != 5);
+        } while (opcaoSelecionada != 4);
     }
 }

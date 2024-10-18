@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 public class TopFiveFilter implements DataFilter {
 
     @Override
-    public List<SpotifyData> applyFilter(List<SpotifyData> data) {
+    public List<SpotifyData> applyFilter(List<? extends SpotifyData> data) {
             return data.stream()
-                    .sorted(Comparator.comparingInt(SpotifyData::getNumeroDeOuvidas).reversed())
+                    .sorted(Comparator.comparingInt(SpotifyData::getNumeroDeReproducoes).reversed())
                     .limit(5)
                     .collect(Collectors.toList());
         }

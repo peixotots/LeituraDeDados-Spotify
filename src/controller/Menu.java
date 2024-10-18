@@ -1,4 +1,6 @@
 package controller;
+
+import data.AppleData;
 import data.SpotifyData;
 import exception.OpcaoInvalidaException;
 
@@ -14,19 +16,23 @@ public abstract class Menu {
     }
 
     public static String geraMenuComOpcoes(String tituloMenu, List<String> opcoes) {
-
         int contador = 1;
         StringBuilder opcoesConcatenadas = new StringBuilder();
 
         int largura = tituloMenu.length() + 29;
 
+        for (String opcao : opcoes) {
+            largura = Math.max(largura, opcao.length() + 4);
+        }
+
         String bordaTopo = "╔" + "═".repeat(largura) + "╗";
         String linhaCentral = "╠" + "═".repeat(largura) + "╣";
         String bordaFim = "╚" + "═".repeat(largura) + "╝";
-        String linhaTitulo = "║" + " ".repeat((largura - tituloMenu.length() ) / 2 ) + tituloMenu + " ".repeat(((largura - tituloMenu.length()) / 2) + 1) + "║";
+        String linhaTitulo = "║" + " ".repeat((largura - tituloMenu.length()) / 2) + tituloMenu + " ".repeat((largura - tituloMenu.length()) / 2) + " ║";
 
         for (String opcao : opcoes) {
-            opcoesConcatenadas.append("* ").append(contador).append(". ").append(opcao).append(" ".repeat(largura - opcao.length() - 4)).append("║").append("\n");
+            opcoesConcatenadas.append("* ").append(contador).append(". ").append(opcao)
+                    .append(" ".repeat(largura - opcao.length() - 4)).append("║").append("\n");
             contador++;
         }
 
@@ -35,25 +41,58 @@ public abstract class Menu {
 
     public abstract void selecionaOpcao() throws OpcaoInvalidaException;
 
-    protected String geraSaidaTop5(List<SpotifyData> top5MaisOuvidas, String titulo) {
-        int largura = titulo.length() + 29;
+    protected String geraSaidaFiltros(List<SpotifyData> musicas, String titulo) {
+        int larguraMaxima = titulo.length();
 
-        StringBuilder saida = new StringBuilder();
-        String bordaTopo = "╔" + "═".repeat(largura) + "╗";
-        String linhaTitulo = "║" + " ".repeat((largura - titulo.length()) / 2) + titulo + " ".repeat(((largura - titulo.length()) / 2) + 1) + "║";
-        String linhaCentral = "╠" + "═".repeat(largura) + "╣";
-        String bordaFim = "╚" + "═".repeat(largura) + "╝";
+        for (SpotifyData musica : musicas) {
+            String linhaMusica;
 
-        saida.append(bordaTopo).append("\n").append(linhaTitulo).append("\n").append(linhaCentral).append("\n");
+            if (musica instanceof AppleData appleData) {
+                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Apple: %d | 🔥 Reproduções: %d",
+                        appleData.getNome(), appleData.getArtista(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
+            } else {
+                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🔥 Reproduções: %d | Playlists: %d",
+                        musica.getNome(), musica.getArtista(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());
+            }
 
-        int contador = 1;
-        for (SpotifyData musica : top5MaisOuvidas) {
-            String linhaMusica = String.format("%d. %s - %d ouvidas", contador, musica.getNome(), musica.getNumeroDeOuvidas());
-            saida.append("║ ").append(linhaMusica).append(" ".repeat(largura - linhaMusica.length() - 1)).append("║\n");
-            contador++;
+            if (linhaMusica.length() > larguraMaxima) {
+                larguraMaxima = linhaMusica.length();
+            }
         }
 
+        int larguraFinal = larguraMaxima + 9;
+
+        StringBuilder saida = new StringBuilder();
+        String bordaTopo = "╔" + "═".repeat(larguraFinal) + "╗";
+        saida.append(bordaTopo).append("\n");
+
+        int espacosAntesTitulo = (larguraFinal - titulo.length()) / 2;
+        int espacosDepoisTitulo = larguraFinal - titulo.length() - espacosAntesTitulo;
+        String linhaTitulo = "║" + " ".repeat(espacosAntesTitulo) + titulo + " ".repeat(espacosDepoisTitulo) + "║";
+        saida.append(linhaTitulo).append("\n");
+
+        String linhaCentral = "╠" + "═".repeat(larguraFinal) + "╣";
+        saida.append(linhaCentral).append("\n");
+
+        for (SpotifyData musica : musicas) {
+            String linhaMusica;
+
+            if (musica instanceof AppleData appleData) {
+                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Apple: %d | 🔥 Reproduções: %d",
+                        appleData.getNome(), appleData.getArtista(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
+            } else {
+                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🔥 Reproduções: %d | Playlists: %d",
+                        musica.getNome(), musica.getArtista(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());
+            }
+
+            saida.append("║").append(linhaMusica)
+                    .append(" ".repeat(Math.max(0, larguraFinal - linhaMusica.length() - 1)))
+                    .append("║\n");
+        }
+
+        String bordaFim = "╚" + "═".repeat(larguraFinal) + "╝";
         saida.append(bordaFim);
+
         return saida.toString();
     }
 }

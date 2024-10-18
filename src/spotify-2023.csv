@@ -1,10 +1,10 @@
 track_name,artist(s)_name,artist_count,released_year,released_month,released_day,in_spotify_playlists,in_spotify_charts,streams,in_apple_playlists,in_apple_charts,in_deezer_playlists,in_deezer_charts,in_shazam_charts,bpm,key,mode,danceability_%,valence_%,energy_%,acousticness_%,instrumentalness_%,liveness_%,speechiness_%
-Seven (feat. Latto) (Explicit Ver.),"Latto, Jung Kook",2,2023,7,14,553,147,141381703,43,263,45,10,826,125,B,Major,80,89,83,31,0,8,4
+Seven (feat. Latto),"Latto Jung Kook",2,2023,7,14,553,147,141381703,43,263,45,10,826,125,B,Major,80,89,83,31,0,8,4
 LALA,Myke Towers,1,2023,3,23,1474,48,133716286,48,126,58,14,382,92,C#,Major,71,61,74,7,0,10,4
 vampire,Olivia Rodrigo,1,2023,6,30,1397,113,140003974,94,207,91,14,949,138,F,Major,51,32,53,17,0,31,6
 Cruel Summer,Taylor Swift,1,2019,8,23,7858,100,800840817,116,207,125,12,548,170,A,Major,55,58,72,11,0,11,15
 WHERE SHE GOES,Bad Bunny,1,2023,5,18,3133,50,303236322,84,133,87,15,425,144,A,Minor,65,23,80,14,63,11,6
-Sprinter,"Dave, Central Cee",2,2023,6,1,2186,91,183706234,67,213,88,17,946,141,C#,Major,92,66,58,19,0,8,24
+Sprinter,"Dave Central Cee",2,2023,6,1,2186,91,183706234,67,213,88,17,946,141,C#,Major,92,66,58,19,0,8,24
 Ella Baila Sola,"Eslabon Armado, Peso Pluma",2,2023,3,16,3090,50,725980112,34,222,43,13,418,148,F,Minor,67,83,76,48,0,8,3
 Columbia,Quevedo,1,2023,7,7,714,43,58149378,25,89,30,13,194,100,F,Major,67,26,71,37,0,11,4
 fukumean,Gunna,1,2023,5,15,1096,83,95217315,60,210,48,11,953,130,C#,Minor,85,22,62,12,0,28,9
@@ -15,7 +15,7 @@ Flowers,Miley Cyrus,1,2023,1,12,12211,115,1316855716,300,215,745,58,"1,021",118,
 Daylight,David Kushner,1,2023,4,14,3528,98,387570742,80,156,182,24,"1,281",130,D,Minor,51,32,43,83,0,9,3
 Kill Bill,SZA,1,2022,12,8,8109,77,1163093654,183,162,161,12,187,89,G#,Major,64,43,73,5,17,16,4
 Cupid - Twin Ver.,Fifty Fifty,1,2023,2,24,2942,77,496795686,91,212,78,6,0,120,B,Minor,78,76,59,43,0,34,3
-"What Was I Made For? [From The Motion Picture ""Barbie""]",Billie Eilish,1,2023,7,13,873,104,30546883,80,227,95,24,"1,173",78,,Major,44,14,9,96,0,10,3
+"What Was I Made For?,Billie Eilish,1,2023,7,13,873,104,30546883,80,227,95,24,"1,173",78,,Major,44,14,9,96,0,10,3
 Classy 101,"Feid, Young Miko",2,2023,3,31,2610,40,335222234,43,100,54,14,187,100,B,Major,86,67,66,14,0,12,16
 Like Crazy,Jimin,1,2023,3,24,596,68,363369738,8,104,23,2,29,120,G,Major,63,36,73,0,0,36,4
 LADY GAGA,"Gabito Ballesteros, Junior H, Peso Pluma",3,2023,6,22,332,26,86444842,11,163,10,4,0,140,F,Minor,65,87,74,22,0,42,4
@@ -540,7 +540,7 @@ Tacones Rojos,Sebastian Yatra,1,2021,10,22,3047,9,510876816,77,31,85,5,28,123,B,
 Peaches (feat. Daniel Caesar & Giveon),"Justin Bieber, Daniel Caesar, Giveon",3,2021,3,19,14140,0,1445941661,231,52,612,6,,90,,Major,63,49,68,38,0,42,18
 Dakiti,"Bad Bunny, Jhay Cortez",2,2020,10,30,11215,21,1763363713,189,166,525,9,25,110,E,Minor,73,14,57,40,0,11,5
 "Tiago PZK: Bzrp Music Sessions, Vol. 48","Bizarrap, Tiago pzk",2,2021,12,29,1678,12,374191487,20,4,15,1,3,96,C#,Minor,66,76,82,47,0,10,32
-LStromae,1,2022,1,9,2035,0,108809090,41,122,394,0,2,88,D,Minor,56,58,55,35,0,23,11
+LStromae,Paul Van,1,2022,1,9,2035,0,108809090,41,122,394,0,2,88,D,Minor,56,58,55,35,0,23,11
 Nostl,"Chris Brown, Rvssian, Rauw Alejandro",3,2021,9,8,2780,2,436695353,86,76,59,0,16,98,A,Minor,73,60,85,17,0,24,5
 Better Days (NEIKED x Mae Muller x Polo G),"NEIKED, Mae Muller, Polo G",3,2021,9,24,4091,0,421040617,105,2,73,13,1,110,,Minor,72,67,68,0,0,14,4
 Life Goes On,Oliver Tree,1,2020,7,17,2868,0,501541661,43,15,116,0,,80,,Major,70,57,49,19,0,12,8
@@ -556,7 +556,7 @@ Salimo de Noche,"Trueno, Tiago pzk",2,2021,10,21,1057,0,261414174,17,5,21,0,0,84
 Volando - Remix,"Sech, Bad Bunny, Mora",3,2021,7,8,3272,19,610045621,101,34,70,1,2,154,F#,Major,66,63,69,21,0,11,7
 Leave The Door Open,"Bruno Mars, Anderson .Paak, Silk Sonic",3,2021,3,5,14417,0,1115880852,237,123,569,0,10,148,F,Major,59,72,62,18,0,9,3
 Knife Talk (with 21 Savage ft. Project Pat),"Drake, Project Pat, 21 Savage",3,2021,9,3,5199,0,594482982,45,43,45,0,3,146,F,Minor,85,22,37,13,0,7,30
-Don't Be Shy,"Tisto, Kar",2,2021,8,1,6026,0,566954746,171,51,187,1,21,120,B,Minor,77,51,79,20,0,26,6
+Don't Be Shy,"Tisto Kar",2,2021,8,1,6026,0,566954746,171,51,187,1,21,120,B,Minor,77,51,79,20,0,26,6
 LA FAMA (with The Weeknd),"The Weeknd, ROSAL",2,2021,11,11,4640,3,374706940,81,93,507,6,4,136,,Minor,77,82,30,95,0,13,5
 The Family Madrigal,"Olga Merediz, Stephanie Beatriz, Encanto - Cast",3,2021,11,19,1150,0,184937148,20,38,12,0,0,141,C#,Major,59,56,63,12,0,6,36
 Phantom Regret by Jim,The Weeknd,1,2022,1,7,768,0,31959571,1,1,3,0,0,108,A,Minor,46,23,48,75,30,14,4

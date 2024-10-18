@@ -32,7 +32,6 @@ public class Util {
         return resultado.toArray(new String[0]);
     }
 
-
     public static String lerTexto(String pergunta) throws DadoInvalidoException {
         System.out.println(pergunta);
         String texto = entrada.nextLine();
