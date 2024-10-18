@@ -1,6 +1,7 @@
 package controller;
 
 import data.AppleData;
+import data.DeezerData;
 import data.SpotifyData;
 import exception.OpcaoInvalidaException;
 
@@ -50,10 +51,14 @@ public abstract class Menu {
             if (musica instanceof AppleData appleData) {
                 linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Apple: %d | 🔥 Reproduções: %d",
                         appleData.getNome(), appleData.getArtista(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
+            } else if (musica instanceof DeezerData deezerData) {
+                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Deezer: %d | 🔥 Reproduções: %d",
+                        deezerData.getNome(), deezerData.getArtista(), deezerData.getDestaqueDeezer(), deezerData.getNumeroDeReproducoes());
             } else {
                 linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🔥 Reproduções: %d | Playlists: %d",
                         musica.getNome(), musica.getArtista(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());
             }
+
 
             if (linhaMusica.length() > larguraMaxima) {
                 larguraMaxima = linhaMusica.length();
@@ -80,6 +85,9 @@ public abstract class Menu {
             if (musica instanceof AppleData appleData) {
                 linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Apple: %d | 🔥 Reproduções: %d",
                         appleData.getNome(), appleData.getArtista(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
+            } else if (musica instanceof DeezerData deezerData) {
+                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Deezer: %d | 🔥 Reproduções: %d",
+                        deezerData.getNome(), deezerData.getArtista(), deezerData.getDestaqueDeezer(), deezerData.getNumeroDeReproducoes());
             } else {
                 linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🔥 Reproduções: %d | Playlists: %d",
                         musica.getNome(), musica.getArtista(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());

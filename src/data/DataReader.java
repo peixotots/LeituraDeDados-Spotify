@@ -28,17 +28,19 @@ public class DataReader {
                 int numeroDeOuvidas = Integer.parseInt(colunas[8].trim());
                 int numeroDePlaylists = Integer.parseInt(colunas[6].trim());
                 int inAppleCharts = Integer.parseInt(colunas[10].trim());
+                int inDeezerCharts = Integer.parseInt(colunas[12].trim());
 
                 if (opcao.equals("1")) {
-                    SpotifyData dataSpotify = new SpotifyData(nome, artista, numeroDeOuvidas, numeroDePlaylists);
-                    musicas.add(dataSpotify);
+                    SpotifyData spotifyData = new SpotifyData(nome, artista, numeroDeOuvidas, numeroDePlaylists);
+                    musicas.add(spotifyData);
                 }
                 if (opcao.equals("2")) {
-                    AppleData dataApple = new AppleData(nome, artista, numeroDeOuvidas, numeroDePlaylists, inAppleCharts);
-                    musicas.add(dataApple);
+                    AppleData appleData = new AppleData(nome, artista, numeroDeOuvidas, numeroDePlaylists, inAppleCharts);
+                    musicas.add(appleData);
                 }
                 if (opcao.equals("3")) {
-                    //...
+                    DeezerData deezerData = new DeezerData(nome, artista, numeroDeOuvidas, numeroDePlaylists, inDeezerCharts);
+                    musicas.add(deezerData);
                 }
             }
         } catch (IOException e) {
