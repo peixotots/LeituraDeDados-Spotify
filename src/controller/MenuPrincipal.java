@@ -14,7 +14,7 @@ import static data.DataReader.lerMusicasDoArquivo;
 public class MenuPrincipal extends Menu {
     @Override
     public void selecionaOpcao() {
-        String menu = Menu.geraMenuComOpcoes("FILTROS", List.of("TOP 5 MAIS ESCUTADAS NO SPOTIFY", "TOP 5 DESTAQUES NA APPLE", "TOP 5 DESTAQUES DEEZER", "...", "Sair"));
+        String menu = Menu.geraMenuComOpcoes("FILTROS", List.of("TOP 5 MÚSICAS MAIS OUVIDAS NO SPOTIFY", "TOP 5 DESTAQUES NA APPLE", "TOP 5 DESTAQUES DEEZER", "...", "Sair"));
 
         String caminhoArquivo = "src/spotify-2023.csv";
         int opcaoSelecionada = 0;
@@ -27,7 +27,7 @@ public class MenuPrincipal extends Menu {
                         TopFiveFilter topFiveFilter = new TopFiveFilter();
                         List<SpotifyData> spotifyData = lerMusicasDoArquivo(caminhoArquivo, "1");
                         List<SpotifyData> top5MaisOuvidasSpotify = topFiveFilter.applyFilter(spotifyData);
-                        System.out.println(geraSaidaFiltros(top5MaisOuvidasSpotify, "TOP 5 NO SPOTIFY"));
+                        System.out.println(geraSaidaFiltros(top5MaisOuvidasSpotify, "TOP 5 MÚSICAS MAIS OUVIDAS NO SPOTIFY"));
                         break;
                     case 2:
                         Apple10ChartsFilter appleFilter = new Apple10ChartsFilter();
