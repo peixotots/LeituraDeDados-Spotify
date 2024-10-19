@@ -49,16 +49,15 @@ public abstract class Menu {
             String linhaMusica;
 
             if (musica instanceof AppleData appleData) {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Apple: %d | 🔥 Reproduções: %d",
-                        appleData.getNome(), appleData.getArtista(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
+                linhaMusica = String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 📅 ANO DE LANÇAMENTO: %d | 🌟 DESTAQUE APPLE: %d | 🔥 REPRODUÇÕES: %d",
+                        appleData.getNome(), appleData.getArtista(), appleData.getAnoDeLancamento(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
             } else if (musica instanceof DeezerData deezerData) {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Deezer: %d | 🔥 Reproduções: %d",
-                        deezerData.getNome(), deezerData.getArtista(), deezerData.getDestaqueDeezer(), deezerData.getNumeroDeReproducoes());
+                linhaMusica = String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 📅 ANO DE LANÇAMENTO: %d | 🌟 DESTAQUE DEEZER: %d | 🔥 REPRODUÇÕES: %d",
+                        deezerData.getNome(), deezerData.getArtista(), deezerData.getAnoDeLancamento(), deezerData.getDestaqueDeezer(), deezerData.getNumeroDeReproducoes());
             } else {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🔥 Reproduções: %d | Playlists: %d",
-                        musica.getNome(), musica.getArtista(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());
+                linhaMusica = String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 📅 ANO DE LANÇAMENTO: %d | 🔥 REPRODUÇÕES: %d | 📀 PLAYLISTS: %d",
+                        musica.getNome(), musica.getArtista(), musica.getAnoDeLancamento(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());
             }
-
 
             if (linhaMusica.length() > larguraMaxima) {
                 larguraMaxima = linhaMusica.length();
@@ -83,14 +82,14 @@ public abstract class Menu {
             String linhaMusica;
 
             if (musica instanceof AppleData appleData) {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Apple: %d | 🔥 Reproduções: %d",
-                        appleData.getNome(), appleData.getArtista(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
+                linhaMusica = String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 📅 ANO DE LANÇAMENTO: %d | 🌟 DESTAQUE APPLE: %d | 🔥 REPRODUÇÕES: %d",
+                        appleData.getNome(), appleData.getArtista(), appleData.getAnoDeLancamento(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
             } else if (musica instanceof DeezerData deezerData) {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Deezer: %d | 🔥 Reproduções: %d",
-                        deezerData.getNome(), deezerData.getArtista(), deezerData.getDestaqueDeezer(), deezerData.getNumeroDeReproducoes());
+                linhaMusica = String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 📅 ANO DE LANÇAMENTO: %d | 🌟 DESTAQUE DEEZER: %d | 🔥 REPRODUÇÕES: %d",
+                        deezerData.getNome(), deezerData.getArtista(), deezerData.getAnoDeLancamento(), deezerData.getDestaqueDeezer(), deezerData.getNumeroDeReproducoes());
             } else {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🔥 Reproduções: %d | Playlists: %d",
-                        musica.getNome(), musica.getArtista(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());
+                linhaMusica = String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 📅 ANO DE LANÇAMENTO: %d | 🔥 REPRODUÇÕES: %d | 📀 PLAYLISTS: %d",
+                        musica.getNome(), musica.getArtista(), musica.getAnoDeLancamento(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());
             }
 
             saida.append("║").append(linhaMusica)
