@@ -1,10 +1,10 @@
 package data;
 
 public class AppleData extends SpotifyData {
-    private int destaqueApple;
+    private final int destaqueApple;
 
     public AppleData(String nome, String artista, int numeroDeOuvidas, int numeroDePlaylists, int destaqueApple) {
-        super(nome, artista, numeroDeOuvidas, numeroDePlaylists);
+        super(nome, artista, numeroDeOuvidas, numeroDePlaylists, 0);
         this.destaqueApple = destaqueApple;
     }
 
