@@ -15,8 +15,7 @@ import static data.DataReader.lerMusicasDoArquivo;
 public class MenuPrincipal extends Menu {
     @Override
     public void selecionaOpcao() {
-        String menu = Menu.geraMenuComOpcoes(" FILTROS", List.of("TOP 5 MÚSICAS MAIS OUVIDAS NO SPOTIFY", "TOP 5 DESTAQUES - APPLE", "TOP 5 DESTAQUES - DEEZER", "TOP 5 MÚSICAS MAIS ANTIGAS OUVIDAS EM 2023", "Encerrar programa"));
-
+        String menu = Menu.geraMenuComOpcoes("🎧 ADA MUSIC - FILTROS", List.of("TOP 5 MÚSICAS MAIS OUVIDAS NO SPOTIFY", "TOP 5 DESTAQUES - APPLE", "TOP 5 DESTAQUES - DEEZER", "TOP 5 MÚSICAS MAIS ANTIGAS OUVIDAS EM 2023", "Encerrar programa"));
         String caminhoArquivo = "src/spotify-2023.csv";
         int opcaoSelecionada = 0;
         do {
