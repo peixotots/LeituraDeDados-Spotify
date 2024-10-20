@@ -2,8 +2,8 @@ package controller;
 
 import data.SpotifyData;
 import exception.OpcaoInvalidaException;
-import filter.Apple10ChartsFilter;
-import filter.Deezer10ChartsFilter;
+import filter.Apple5ChartsFilter;
+import filter.Deezer5ChartsFilter;
 import filter.TopFiveFilter;
 import filter.OldestSongsFilter;
 import util.Util;
@@ -32,14 +32,14 @@ public class MenuPrincipal extends Menu {
                         break;
 
                     case 2:
-                        Apple10ChartsFilter appleFilter = new Apple10ChartsFilter();
+                        Apple5ChartsFilter appleFilter = new Apple5ChartsFilter();
                         List<SpotifyData> appleData = lerMusicasDoArquivo(caminhoArquivo, "2");
                         List<SpotifyData> top5DestaquesApple = appleFilter.applyFilter(appleData);
                         System.out.println(geraSaidaFiltros(top5DestaquesApple, "TOP 5 DESTAQUES - APPLE"));
                         break;
 
                     case 3:
-                        Deezer10ChartsFilter deezerFilter = new Deezer10ChartsFilter();
+                        Deezer5ChartsFilter deezerFilter = new Deezer5ChartsFilter();
                         List<SpotifyData> deezerData = lerMusicasDoArquivo(caminhoArquivo, "3");
                         List<SpotifyData> top5DestaquesDeezer = deezerFilter.applyFilter(deezerData);
                         System.out.println(geraSaidaFiltros(top5DestaquesDeezer, "TOP 5 - DEEZER"));

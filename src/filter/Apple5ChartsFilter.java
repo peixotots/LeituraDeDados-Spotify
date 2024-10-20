@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Apple10ChartsFilter implements DataFilter {
+public class Apple5ChartsFilter implements DataFilter {
     @Override
     public List<SpotifyData> applyFilter(List<? extends SpotifyData> data) {
         return data.stream()

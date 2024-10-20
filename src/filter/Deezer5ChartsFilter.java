@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Deezer10ChartsFilter implements DataFilter {
+public class Deezer5ChartsFilter implements DataFilter {
 
     @Override
     public List<SpotifyData> applyFilter(List<? extends SpotifyData> data) {
