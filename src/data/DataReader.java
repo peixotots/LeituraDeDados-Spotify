@@ -29,9 +29,10 @@ public class DataReader {
                 int numeroDePlaylists = Integer.parseInt(colunas[6].trim());
                 int inAppleCharts = Integer.parseInt(colunas[10].trim());
                 int inDeezerCharts = Integer.parseInt(colunas[12].trim());
+                int anoDeLancamento = Integer.parseInt(colunas[3].trim());
 
                 if (opcao.equals("1")) {
-                    SpotifyData spotifyData = new SpotifyData(nome, artista, numeroDeOuvidas, numeroDePlaylists);
+                    SpotifyData spotifyData = new SpotifyData(nome, artista, numeroDeOuvidas, numeroDePlaylists, anoDeLancamento);
                     musicas.add(spotifyData);
                 }
                 if (opcao.equals("2")) {
@@ -49,4 +50,3 @@ public class DataReader {
         return musicas;
     }
 }
-

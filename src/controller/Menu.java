@@ -43,64 +43,70 @@ public abstract class Menu {
     public abstract void selecionaOpcao() throws OpcaoInvalidaException;
 
     protected String geraSaidaFiltros(List<SpotifyData> musicas, String titulo) {
-        int larguraMaxima = titulo.length();
+    int larguraMaxima = titulo.length();
+    boolean incluirAnoDeLancamento = titulo.equals("TOP 5 MÚSICAS MAIS OUVIDAS NO SPOTIFY") || titulo.equals("TOP 5 MÚSICAS MAIS ANTIGAS OUVIDAS EM 2023");
 
-        for (SpotifyData musica : musicas) {
-            String linhaMusica;
+    for (SpotifyData musica : musicas) {
+        String linhaMusica;
 
-            if (musica instanceof AppleData appleData) {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Apple: %d | 🔥 Reproduções: %d",
-                        appleData.getNome(), appleData.getArtista(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
-            } else if (musica instanceof DeezerData deezerData) {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Deezer: %d | 🔥 Reproduções: %d",
-                        deezerData.getNome(), deezerData.getArtista(), deezerData.getDestaqueDeezer(), deezerData.getNumeroDeReproducoes());
-            } else {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🔥 Reproduções: %d | Playlists: %d",
-                        musica.getNome(), musica.getArtista(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());
-            }
-
-
-            if (linhaMusica.length() > larguraMaxima) {
-                larguraMaxima = linhaMusica.length();
-            }
+        if (musica instanceof AppleData appleData) {
+            linhaMusica = String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 🌟 DESTAQUE APPLE: %d | 🔥 REPRODUÇÕES: %d",
+                    appleData.getNome(), appleData.getArtista(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
+        } else if (musica instanceof DeezerData deezerData) {
+            linhaMusica = String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 🌟 DESTAQUE DEEZER: %d | 🔥 REPRODUÇÕES: %d",
+                    deezerData.getNome(), deezerData.getArtista(), deezerData.getDestaqueDeezer(), deezerData.getNumeroDeReproducoes());
+        } else {
+            linhaMusica = incluirAnoDeLancamento
+                    ? String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 📅 ANO DE LANÇAMENTO: %d | 🔥 REPRODUÇÕES: %d | 📀 PLAYLISTS: %d",
+                    musica.getNome(), musica.getArtista(), musica.getAnoDeLancamento(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists())
+                    : String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 🔥 REPRODUÇÕES: %d | 📀 PLAYLISTS: %d",
+                    musica.getNome(), musica.getArtista(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());
         }
 
-        int larguraFinal = larguraMaxima + 9;
-
-        StringBuilder saida = new StringBuilder();
-        String bordaTopo = "╔" + "═".repeat(larguraFinal) + "╗";
-        saida.append(bordaTopo).append("\n");
-
-        int espacosAntesTitulo = (larguraFinal - titulo.length()) / 2;
-        int espacosDepoisTitulo = larguraFinal - titulo.length() - espacosAntesTitulo;
-        String linhaTitulo = "║" + " ".repeat(espacosAntesTitulo) + titulo + " ".repeat(espacosDepoisTitulo) + "║";
-        saida.append(linhaTitulo).append("\n");
-
-        String linhaCentral = "╠" + "═".repeat(larguraFinal) + "╣";
-        saida.append(linhaCentral).append("\n");
-
-        for (SpotifyData musica : musicas) {
-            String linhaMusica;
-
-            if (musica instanceof AppleData appleData) {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Apple: %d | 🔥 Reproduções: %d",
-                        appleData.getNome(), appleData.getArtista(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
-            } else if (musica instanceof DeezerData deezerData) {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🌟 Destaque Deezer: %d | 🔥 Reproduções: %d",
-                        deezerData.getNome(), deezerData.getArtista(), deezerData.getDestaqueDeezer(), deezerData.getNumeroDeReproducoes());
-            } else {
-                linhaMusica = String.format("🎵 Musica: %s | 🎤 Artista: %s | 🔥 Reproduções: %d | Playlists: %d",
-                        musica.getNome(), musica.getArtista(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());
-            }
-
-            saida.append("║").append(linhaMusica)
-                    .append(" ".repeat(Math.max(0, larguraFinal - linhaMusica.length() - 1)))
-                    .append("║\n");
+        if (linhaMusica.length() > larguraMaxima) {
+            larguraMaxima = linhaMusica.length();
         }
-
-        String bordaFim = "╚" + "═".repeat(larguraFinal) + "╝";
-        saida.append(bordaFim);
-
-        return saida.toString();
     }
+
+    int larguraFinal = larguraMaxima + 9;
+
+    StringBuilder saida = new StringBuilder();
+    String bordaTopo = "╔" + "═".repeat(larguraFinal) + "╗";
+    saida.append(bordaTopo).append("\n");
+
+    int espacosAntesTitulo = (larguraFinal - titulo.length()) / 2;
+    int espacosDepoisTitulo = larguraFinal - titulo.length() - espacosAntesTitulo;
+    String linhaTitulo = "║" + " ".repeat(espacosAntesTitulo) + titulo + " ".repeat(espacosDepoisTitulo) + "║";
+    saida.append(linhaTitulo).append("\n");
+
+    String linhaCentral = "╠" + "═".repeat(larguraFinal) + "╣";
+    saida.append(linhaCentral).append("\n");
+
+    for (SpotifyData musica : musicas) {
+        String linhaMusica;
+
+        if (musica instanceof AppleData appleData) {
+            linhaMusica = String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 🌟 DESTAQUE APPLE: %d | 🔥 REPRODUÇÕES: %d",
+                    appleData.getNome(), appleData.getArtista(), appleData.getDestaqueApple(), appleData.getNumeroDeReproducoes());
+        } else if (musica instanceof DeezerData deezerData) {
+            linhaMusica = String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 🌟 DESTAQUE DEEZER: %d | 🔥 REPRODUÇÕES: %d",
+                    deezerData.getNome(), deezerData.getArtista(), deezerData.getDestaqueDeezer(), deezerData.getNumeroDeReproducoes());
+        } else {
+            linhaMusica = incluirAnoDeLancamento
+                    ? String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 📅 ANO DE LANÇAMENTO: %d | 🔥 REPRODUÇÕES: %d | 📀 PLAYLISTS: %d",
+                    musica.getNome(), musica.getArtista(), musica.getAnoDeLancamento(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists())
+                    : String.format("🎵 MÚSICA: %s | 🎤 ARTISTA: %s | 🔥 REPRODUÇÕES: %d | 📀 PLAYLISTS: %d",
+                    musica.getNome(), musica.getArtista(), musica.getNumeroDeReproducoes(), musica.getNumeroDePlaylists());
+        }
+
+        saida.append("║").append(linhaMusica)
+                .append(" ".repeat(Math.max(0, larguraFinal - linhaMusica.length() - 1)))
+                .append("║\n");
+    }
+
+    String bordaFim = "╚" + "═".repeat(larguraFinal) + "╝";
+    saida.append(bordaFim);
+
+    return saida.toString();
+}
 }
