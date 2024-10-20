@@ -7,6 +7,7 @@ import filter.Deezer10ChartsFilter;
 import filter.TopFiveFilter;
 import filter.OldestSongsFilter;
 import util.Util;
+import header.Header;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ import static data.DataReader.lerMusicasDoArquivo;
 public class MenuPrincipal extends Menu {
     @Override
     public void selecionaOpcao() {
+        Header.show("");
+
         String menu = Menu.geraMenuComOpcoes("🎧 ADA MUSIC - FILTROS", List.of("TOP 5 MÚSICAS MAIS OUVIDAS NO SPOTIFY", "TOP 5 DESTAQUES - APPLE", "TOP 5 DESTAQUES - DEEZER", "TOP 5 MÚSICAS MAIS ANTIGAS OUVIDAS EM 2023", "Encerrar programa"));
         String caminhoArquivo = "src/spotify-2023.csv";
         int opcaoSelecionada = 0;
