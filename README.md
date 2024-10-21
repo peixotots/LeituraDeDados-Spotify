@@ -22,10 +22,12 @@ O projeto foi desenvolvido com base em um arquivo CSV contendo dados da platafor
 - **Top 5 destaques - Apple Music:** Identifica as cinco músicas mais destacadas na plataforma Apple Music.
 - **Top 5 destaques - Deezer:** Seleciona as cinco músicas mais destacadas na plataforma Deezer.
 - **Top 5 músicas mais antigas ouvidas em 2023:** Identifica as cinco músicas mais antigas que foram ouvidas em 2023.
+- **Músicas mais tocadas no ano 2000:** Seleciona as músicas mais tocadas no ano 2000.
+- **Artistas mais tocados em 2023:** Filtra os artistas mais tocados em 2023.
 
-O projeto faz uso de técnicas de programação funcional, como map, filter e reduce, para processar os dados de forma eficiente. A manipulação dos arquivos CSV é feita com o uso de Streams, garantindo um processamento mais rápido e otimizado.
+O projeto faz uso de técnicas de programação funcional, como map e filter, para processar os dados de forma eficiente. A manipulação dos arquivos CSV é feita com o uso de Streams, garantindo um processamento mais rápido e otimizado.
 
-## Gráficos dos Dados Filtrados
+## Gráficos de Alguns dos Dados Filtrados
 
 ### TOP 5 MÚSICAS MAIS OUVIDAS NO SPOTIFY
 <img src="ImagensReadme/top-spotify.jpg" alt="Top 5 Spotify" width="400">

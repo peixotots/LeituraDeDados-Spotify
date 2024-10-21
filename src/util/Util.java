@@ -1,6 +1,5 @@
 package util;
 
-import exception.DadoInvalidoException;
 import exception.OpcaoInvalidaException;
 
 import java.util.ArrayList;
