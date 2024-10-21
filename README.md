@@ -24,6 +24,7 @@ O projeto foi desenvolvido com base em um arquivo CSV contendo dados da platafor
 - **Top 5 músicas mais antigas ouvidas em 2023:** Identifica as cinco músicas mais antigas que foram ouvidas em 2023.
 - **Músicas mais tocadas no ano 2000:** Seleciona as músicas mais tocadas no ano 2000.
 - **Artistas mais tocados em 2023:** Filtra os artistas mais tocados em 2023.
+- **Total de reproduções - TOP 5 Spotify:** Calcula a soma de streams das cinco músicas mais escutadas no Spotify.
 
 O projeto faz uso de técnicas de programação funcional, como map e filter, para processar os dados de forma eficiente. A manipulação dos arquivos CSV é feita com o uso de Streams, garantindo um processamento mais rápido e otimizado.
 
