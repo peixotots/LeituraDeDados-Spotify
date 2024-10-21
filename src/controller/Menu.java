@@ -16,7 +16,7 @@ public abstract class Menu {
         this.entrada = new Scanner(System.in);
     }
 
-    public static String geraMenuComOpcoes(String tituloMenu, List<String> opcoes) {
+    public static String gerarMenuComOpcoes(String tituloMenu, List<String> opcoes) {
         int contador = 1;
         StringBuilder opcoesConcatenadas = new StringBuilder();
 
@@ -42,7 +42,7 @@ public abstract class Menu {
 
     public abstract void selecionaOpcao() throws OpcaoInvalidaException;
 
-    protected String geraSaidaFiltros(List<SpotifyData> musicas, String titulo) {
+    protected String gerarSaidaFiltros(List<SpotifyData> musicas, String titulo) {
         int larguraMaxima = titulo.length();
         boolean incluirAnoDeLancamento = titulo.equals("TOP 5 MÚSICAS MAIS OUVIDAS NO SPOTIFY") || titulo.equals("TOP 5 MÚSICAS MAIS ANTIGAS OUVIDAS EM 2023");
 
@@ -114,5 +114,21 @@ public abstract class Menu {
         saida.append(bordaFim);
 
         return saida.toString();
+    }
+
+    protected void gerarSaidaTotalStreams(Long totalStreams, String titulo) {
+        String formattedOutput;
+
+        int largura = titulo.length() + 29;
+        largura = Math.max(largura, String.valueOf(totalStreams).length() + 20);
+
+        String bordaTopo = "╔" + "═".repeat(largura) + "╗";
+        String bordaFim = "╚" + "═".repeat(largura) + "╝";
+        String linhaTitulo = "║" + " ".repeat((largura - titulo.length()) / 2) + titulo + " ".repeat((largura - titulo.length()) / 2) + " ║";
+        String linhaTotalStreams = STR."\{String.format("║ 🔥 STREAMS: %d", totalStreams)}\{" ".repeat(largura - String.format("🔥 STREAMS: %d", totalStreams).length() - 1)}║";
+
+        formattedOutput = bordaTopo + "\n" + linhaTitulo + "\n" + linhaTotalStreams + "\n" + bordaFim;
+
+        System.out.println(formattedOutput);
     }
 }

@@ -3,14 +3,14 @@ package data;
 public class SpotifyData {
     private final String nome;
     private final String artista;
-    private final int getNumeroDeReproducoes;
+    private final int numeroDeReproducoes;
     private final int numeroDePlaylists;
     private final int anoDeLancamento;
 
-    public SpotifyData(String nome, String artista, int getNumeroDeReproducoes, int numeroDePlaylists, int anoDeLancamento) {
+    public SpotifyData(String nome, String artista, int numeroDeReproducoes, int numeroDePlaylists, int anoDeLancamento) {
         this.nome = nome;
         this.artista = artista;
-        this.getNumeroDeReproducoes = getNumeroDeReproducoes;
+        this.numeroDeReproducoes = numeroDeReproducoes;
         this.numeroDePlaylists = numeroDePlaylists;
         this.anoDeLancamento = anoDeLancamento;
     }
@@ -24,7 +24,7 @@ public class SpotifyData {
     }
 
     public int getNumeroDeReproducoes() {
-        return getNumeroDeReproducoes;
+        return numeroDeReproducoes;
     }
 
     public int getNumeroDePlaylists() {
